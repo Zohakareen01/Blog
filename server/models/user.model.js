@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema({
         required:true,
 
     },
+    profilePicture:{
+        type:String,
+        default:"https://cdn.vectorstock.com/i/preview-1x/17/61/male-avatar-profile-picture-vector-10211761.jpg",
+    },
 },{timestamps:true}
 );
 
