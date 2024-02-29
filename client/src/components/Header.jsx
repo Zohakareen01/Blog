@@ -40,14 +40,14 @@ export default function Header() {
         </span>
         Blog
       </Link>
-      <form>
+      {/* <form>
         <TextInput
           type="text"
           placeholder="Search..."
           rightIcon={AiOutlineSearch}
           className="hidden lg:inline" // hide the serach for small screens and visible for lg screens
         />
-      </form>
+      </form> */}
       <Button className="w-12 h-10 lg:hidden " color="gray" pill>
         {/* // lg:hidden= after large screen should be hidden */}
         <AiOutlineSearch />
