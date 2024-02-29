@@ -25,7 +25,7 @@ app.listen(3000, () => {
 //tesing apis
 app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
-app.use('/api/post', postRoutes)
+app.use('/api/post', postRoutes);
 
 
 app.use((err, req, res, next )=> {
