@@ -2,8 +2,8 @@ import { Alert, Button, Modal, TextInput, Textarea } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-//import Comment from './Comment';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
+import Comment from './Comment';
 
 export default function CommentSection({ postId }) {
   const { currentUser } = useSelector((state) => state.user);
@@ -15,7 +15,7 @@ export default function CommentSection({ postId }) {
 //   const [commentToDelete, setCommentToDelete] = useState(null);
 //   const navigate = useNavigate();
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault();// prevent refreshing page
     if (comment.length > 200) {
       return;
     }
@@ -163,7 +163,7 @@ export default function CommentSection({ postId }) {
           )}
         </form>
       )}
-      {/* {comments.length === 0 ? (
+      {comments.length === 0 ? (
         <p className='text-sm my-5'>No comments yet!</p>
       ) : (
         <>
@@ -177,8 +177,8 @@ export default function CommentSection({ postId }) {
             <Comment
               key={comment._id}
               comment={comment}
-              onLike={handleLike}
-              onEdit={handleEdit}
+              // onLike={handleLike}
+              // onEdit={handleEdit}
               onDelete={(commentId) => {
                 setShowModal(true);
                 setCommentToDelete(commentId);
@@ -187,7 +187,7 @@ export default function CommentSection({ postId }) {
           ))}
         </>
       )}
-      <Modal
+      {/* <Modal
         show={showModal}
         onClose={() => setShowModal(false)}
         popup
