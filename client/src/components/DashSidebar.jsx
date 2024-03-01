@@ -75,7 +75,7 @@ export default function DashSidebar() {
             </Link>
             <Link to='/dashboard?tab=comments'>
               <Sidebar.Item
-                active={tab === 'posts'}
+                active={tab === 'comments'}
                 icon={HiAnnotation}
                 as='div'
               >
