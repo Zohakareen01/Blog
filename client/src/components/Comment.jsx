@@ -6,12 +6,12 @@ import { Button, Textarea } from 'flowbite-react';
 
 import {  useSelector } from "react-redux";
 
-export default function Comment({ comment, onLike, onEdit }) {
+export default function Comment({ comment, onLike, onEdit, onDelete }) {
   const [user, setUser] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(comment.content);
   const {currentUser} = useSelector((state)=>state.user);
-  console.log(user);
+
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -120,13 +120,13 @@ export default function Comment({ comment, onLike, onEdit }) {
                     >
                       Edit
                     </button>
-                    {/* <button
+                    <button
                       type='button'
                       onClick={() => onDelete(comment._id)}
                       className='text-gray-400 hover:text-red-500'
                     >
                       Delete
-                    </button> */}
+                    </button>
                   </>
                 )}
             </div>
