@@ -1,7 +1,7 @@
-import { Button, Select, TextInput } from 'flowbite-react';
-import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import PostCard from '../components/PostCard';
+import  { Button,  Select, TextInput } from 'flowbite-react';
+import  { useEffect,  useState } from 'react';
+import  { useLocation,  useNavigate } from 'react-router-dom';
+import  PostCard from '../components/PostCard';
 
 export default function Search() {
   const [sidebarData, setSidebarData] = useState({
@@ -12,12 +12,15 @@ export default function Search() {
 
   console.log(sidebarData);
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [showMore, setShowMore] = useState(false);
+  const [loading, setLoading]  = useState(false);
+  const [showMore, setShowMore]   = useState(false);
 
-  const location = useLocation();
+  const location =
+   useLocation();
 
-  const navigate = useNavigate();
+  const navigate = 
+  
+  useNavigate();
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
@@ -44,6 +47,7 @@ export default function Search() {
       if (res.ok) {
         const data = await res.json();
         setPosts(data.posts);
+
         setLoading(false);
         if (data.posts.length === 9) {
           setShowMore(true);
@@ -64,7 +68,8 @@ export default function Search() {
       setSidebarData({ ...sidebarData, sort: order });
     }
     if (e.target.id === 'category') {
-      const category = e.target.value || 'uncategorized';
+      const category =
+       e.target.value || 'uncategorized';
       setSidebarData({ ...sidebarData, category });
     }
   };
@@ -89,6 +94,7 @@ export default function Search() {
     if (!res.ok) {
       return;
     }
+
     if (res.ok) {
       const data = await res.json();
       setPosts([...posts, ...data.posts]);
@@ -97,8 +103,12 @@ export default function Search() {
       } else {
         setShowMore(false);
       }
+
     }
   };
+
+
+
 
   return (
     <div className='flex flex-col md:flex-row'>
@@ -123,6 +133,8 @@ export default function Search() {
               <option value='asc'>Oldest</option>
             </Select>
           </div>
+
+
           <div className='flex items-center gap-2'>
             <label className='font-semibold'>Category:</label>
             <Select
@@ -130,6 +142,8 @@ export default function Search() {
               value={sidebarData.category}
               id='category'
             >
+
+
               <option value='uncategorized'>Uncategorized</option>
               <option value='reactjs'>React.js</option>
               <option value='nextjs'>Next.js</option>
@@ -160,9 +174,14 @@ export default function Search() {
             >
               Show More
             </button>
+
+
+
           )}
         </div>
       </div>
+
+
     </div>
   );
 }

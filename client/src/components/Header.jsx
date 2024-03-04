@@ -18,6 +18,7 @@ export default function Header() {
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
+
     const searchTermFromUrl = urlParams.get('searchTerm');
   
     if (searchTermFromUrl) {
@@ -43,6 +44,7 @@ export default function Header() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const urlParams = new URLSearchParams(location.search);
     urlParams.set('searchTerm', searchTerm);
     const searchQuery = urlParams.toString();
@@ -70,7 +72,9 @@ export default function Header() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form>
-      <Button className='w-12 h-10 lg:hidden' color='gray' pill>
+      <Button className='w-12 h-10 lg:hidden' color='gray' pill
+        onClick={() => navigate(`/search?searchTerm=${searchTerm}`)}
+      >
         <AiOutlineSearch />
       </Button>
       <div className='flex gap-2 md:order-2'>
